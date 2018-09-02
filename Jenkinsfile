@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                docker build -t Docker-Container:latest .
+                docker run --name Docker-Container -d -p 80:80 Docker-Container:late$
             }
         }
         stage('Test') {
@@ -14,7 +16,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying..' 
             }
         }
     }
