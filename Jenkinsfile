@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent any
+            agent {dockerfile true}
             steps {
                 echo 'Building..'
                 sh 'docker build -t docker-container:latest .'
