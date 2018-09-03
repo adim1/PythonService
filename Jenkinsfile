@@ -7,8 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                docker build -t docker-container:latest .
-                docker run --name docker-container -d -p 80:80 docker-container:latest
+                def myimage=dockeruild("docker-container:latest")
+                myimage.push()
             }
         }
         stage('Test') {
