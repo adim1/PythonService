@@ -1,25 +1,17 @@
 pipeline {
-    agent {
-      dockerfile true
-    }
+    agent none
 
     stages {
         stage('Build') {
+            agent any
             steps {
                 echo 'Building..'
-                def myimage=dockeruild("docker-container:latest")
-                myimage.push()
+                sh 'docker build -t docker-container:latest .'
             }
         }
-        stage('Test') {
+       stage('Deploying..') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying..' 
-            }
-        }
+                echo 'Deploying..'
+                sh 'docker run --name docker-container -d -p 80:80 docker-container:latest'
     }
 }
