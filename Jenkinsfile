@@ -13,5 +13,7 @@ pipeline {
             steps {
                 echo 'Deploying..'
                 sh 'docker run --name docker-container -d -p 80:80 docker-container:latest'
+                }
+             }
     }
 }
