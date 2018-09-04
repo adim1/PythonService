@@ -11,8 +11,7 @@ def before_request():
         counter+=1
 @app.route('/')
 def index():
-     """displaying the counter after converting it to a string"""
-     global counter   
+     """displaying the counter after converting it to a string"""   
      return str(counter)
 if __name__ == '__main__':
 #exposing the service on port 80
