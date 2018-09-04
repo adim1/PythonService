@@ -13,7 +13,7 @@ pipeline {
             agent any
             steps {
                 echo 'Deploying..'
-                sh 'doker stop docker-container || true && docker rm docker-container || true' 
+                sh 'docker stop docker-container || true && docker rm docker-container || true' 
                 sh 'docker run --name docker-container -d -p 81:80 docker-container:latest'
                 }
              }
