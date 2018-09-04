@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Deploying..'
                 sh 'doker stop docker-container || true && docker rm docker-container || true' 
-                sh 'docker run --name docker-container -d -p 80:82 docker-container:latest'
+                sh 'docker run --name docker-container -d -p 81:80 docker-container:latest'
                 }
              }
     }
