@@ -2,7 +2,7 @@
 from flask import Flask, request, request_started
 
 app = Flask(__name__)
-counter = 1
+counter = 0
 @app.before_request
 def before_request():
     """handeling the request before the route path"""
@@ -12,6 +12,7 @@ def before_request():
 @app.route('/')
 def index():
      """displaying the counter after converting it to a string"""
+     global counter   
      return str(counter)
 if __name__ == '__main__':
 #exposing the service on port 80
