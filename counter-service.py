@@ -2,7 +2,7 @@
 from flask import Flask, request, request_started
 
 app = Flask(__name__)
-counter = 0
+counter = 1
 @app.before_request
 def before_request():
     """handeling the request before the route path"""
